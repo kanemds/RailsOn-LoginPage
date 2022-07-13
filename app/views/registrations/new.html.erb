@@ -1,6 +1,16 @@
 <h1 class="mb-3"> Sign up</h1>
 
 <%= form_with model: @user, url: sign_up_path do |form| %>
+
+  <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <% @user.errors.full_messages.each do |message| %>
+        <div> <%= message %> </div>
+      <% end %>
+    </div>
+  <% end %>
+
+
   <div class="mb-3">
     <%= form.label :email %>
     <%= form.text_field :email, class: "form-control", placeholder: "helloworld@gmail.com"%>
@@ -10,8 +20,8 @@
     <%= form.password_field :password, class: "form-control", placeholder: "Your Password"%>
    </div>
   <div class="mb-3">
-    <%= form.label :password_confirmatioin %>
-    <%= form.password_field :password_confirmatioin, class: "form-control", placeholder: "Confirm Your Password" %>
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Your Password" %>
   </div>
 
   <div class="mb-3">
