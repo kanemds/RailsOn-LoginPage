@@ -1,3 +1,3 @@
-source:
-  https://rubygems.org/
-  https://getbootstrap.com/
+source: 
+ - https://rubygems.org/ 
+ - https://getbootstrap.com/
