@@ -7,6 +7,10 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+
+      # cookies[:user_id] consider this is dangerous people can edit
+      # session provide encrypted code so browser won't be able to read
+      session[:user_id] = @user.id
       redirect_to root_path, notice: "Successfully created account"
     else
       render :new

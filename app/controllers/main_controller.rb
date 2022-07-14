@@ -1,6 +1,10 @@
 class MainController < ApplicationController
+
   def index
-    flash[:notice] = "Logged in sucessfully"
-    flash[:alert] = "Invalid email or password"
+    if session[:user_id]
+      # use find may cause error when there is no such id
+      @user = User.find_by(id: session[:user_id])
+    end
   end
+
 end
