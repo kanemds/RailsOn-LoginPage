@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
+  # route &  controller
+
   get "about", to: "about#index"
   
   get "password", to: "passwords#edit", as: :edit_password
@@ -13,6 +15,9 @@ Rails.application.routes.draw do
   post "sign_in", to: "sessions#create"
 
   delete "logout", to: "sessions#destroy"
+
+  get "password/reset", to: "password_resets#new"
+  post "password/reset", to: "password_resets#create"
 
   root to: "main#index" 
 end
